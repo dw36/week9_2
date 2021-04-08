@@ -21,6 +21,7 @@
 */
 
 let darkModeOn = false;
+let noteArray = [];
 
 function switchTheme() {
     // change background color
@@ -69,6 +70,25 @@ function switchTheme() {
             1. click to remove the note taking area and buttons without saving
                 - remove <textarea> and buttons from main area
 */
+
+function newNote() {
+    document.getElementById('main-area').innerHTML =
+        '<input class="width-100 mb-1" value="Note Title"><textarea class="width-100 height-50">Enter your note here</textarea><button onclick="saveNote()">Save</button><button onclick="cancelNote()">Cancel</button>'
+}
+
+function saveNote() {
+    let note = {
+        title: title = document.querySelector('input').value,
+        body: body = document.querySelector('textarea').value
+    };
+    noteArray.push(note);
+    console.log(note);
+}
+
+function cancelNote() {
+    document.getElementById('main-area').innerHTML =
+        '<button  onclick="newNote()">New Note</button>'
+}
 
 /*
     Stored Notes
