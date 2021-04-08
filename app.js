@@ -20,6 +20,37 @@
         - change <footer>'s background color and text color
 */
 
+let darkModeOn = false;
+
+function switchTheme() {
+    // change background color
+    document.body.classList.toggle("dark-theme");
+    // change links color and textarea background color
+    var elems = document.getElementsByTagName('a');
+    if (darkModeOn) {
+        for (var i = 0; i < elems.length; i++) {
+            elems[i].style.color = '#191724';
+        }
+        if (document.querySelector('input') != null) {
+            document.querySelector('input').style.backgroundColor = '#fffaf3';
+            document.querySelector('input').style.color = '#393552';
+            document.querySelector('textarea').style.backgroundColor = '#fffaf3';
+            document.querySelector('textarea').style.color = '#393552';
+        }
+        darkModeOn = false;
+    } else {
+        for (var i = 0; i < elems.length; i++) {
+            elems[i].style.color = '#faf4ed';
+        }
+        if (document.querySelector('input') != null) {
+            document.querySelector('input').style.backgroundColor = '#817c9c';
+            document.querySelector('input').style.color = '#faf4ed';
+            document.querySelector('textarea').style.backgroundColor = '#817c9c';
+            document.querySelector('textarea').style.color = '#faf4ed';
+        }
+        darkModeOn = true;
+    }
+}
 
 /*
     New Note Button
@@ -39,7 +70,6 @@
                 - remove <textarea> and buttons from main area
 */
 
-
 /*
     Stored Notes
 
@@ -49,12 +79,4 @@
     2. click note title to display note in the main area with a close note button.
         - find object with that title in note Array
         - display its note body in the main area
-*/
-
-
-/*
-    Close Button
-
-    1. click to remove the displaying note
-    2. then return to its original state
 */

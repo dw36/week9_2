@@ -5,33 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/styles.css">
+    <script src="app.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap" rel="stylesheet">
-    <title>Notes</title>
+    <title>Notes Editing</title>
 </head>
 
 <body>
     <header class="navbar">
         <a href="#"> <strong>About</strong></a>
         <a href="#"><strong>Docs</strong></a>
+        <button onclick="switchTheme()">Switch Theme</button>
     </header>
 
     <div class="container">
-        <div class="margin-2em"><a href="#">Hide menu</a>
+        <div class="margin-2em"><button>Hide menu</button>
             <ul>
                 <p>Notes List</p>
                 <li><a href="#">note a</a></li>
                 <li><a href="#">note b</a></li>
                 <li><a href="#">note c</a></li>
             </ul>
-
         </div>
         <div class="margin-2em">
-            <textarea class="editing-textarea">Enter your note here</textarea>
-            <button>Save</button>
-            <button>Delete</button>
+            <input class="width-100 mb-1" value="Notes Title">
+            <textarea class="width-100 height-50">Enter your note here</textarea>
+            <button onclick="saveNote()">Save</button>
+            <button onclick="cancelNote()">Cancel</button>
         </div>
-
     </div>
 
     <footer class="footer">

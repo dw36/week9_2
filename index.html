@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/styles.css">
+    <script src="app.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap" rel="stylesheet">
     <title>Notes</title>
@@ -14,11 +15,17 @@
     <header class="navbar">
         <a href="#"> <strong>About</strong></a>
         <a href="#"><strong>Docs</strong></a>
+        <button onclick="switchTheme()">Switch Theme</button>
     </header>
 
     <div class="container">
-        <div class="margin-2em"><a href="#">Show menu</a></div>
-        <div class="margin-2em"><a href="#">Create a new note</a></div>
+        <div id="side-menu" class="margin-2em">
+            <button>Show Notes</button>
+            <ul id="note-list"></ul>
+        </div>
+        <div id="main-area" class="margin-2em">
+            <button>New Note</button>
+        </div>
     </div>
 
     <footer class="footer">
