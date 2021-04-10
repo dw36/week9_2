@@ -100,3 +100,48 @@ function cancelNote() {
         - find object with that title in note Array
         - display its note body in the main area
 */
+
+function showNotes() {
+    document.getElementById('show-note-button').outerHTML =
+        '<button id="hide-note-button" onclick="hideNotes()">Hide Notes</button>';
+
+    if (noteArray[0] != null) {
+        noteArray.forEach(function(note) {
+            // document.getElementById('note-list').insertAdjacentHTML('beforeend', '<li>' + note.title + '</li>');
+            document.getElementById('note-list').insertAdjacentHTML('beforeend', `<li><button onclick="displayNote(\'${note.title}\')"> ${note.title} </button></li>`);
+        });
+    } else {
+        document.getElementById('note-list').insertAdjacentHTML('beforeend', '<li> No Notes To Show</li>');
+    }
+}
+
+function hideNotes() {
+    document.getElementById('hide-note-button').outerHTML =
+        '<button id="show-note-button" onclick="showNotes()">Show Notes</button>';
+    document.getElementById('note-list').innerHTML = '';
+}
+
+function findNoteByTitle(noteTitle) {
+    let result = '';
+    noteArray.forEach(function(note) {
+        if (note.title == noteTitle) {
+            result = note.body;
+        }
+    });
+
+    return result;
+}
+
+function displayNote(noteTitle) {
+    const noteBody = findNoteByTitle(noteTitle);
+
+    let title = document.createElement('h3');
+    title.append(noteTitle);
+
+    let body = document.createElement('p');
+    body.append(noteBody);
+
+    document.getElementById('main-area').innerHTML = '';
+    document.getElementById('main-area').append(title, body);
+    document.getElementById('main-area').innerHTML += ('<button onclick="cancelNote()">Cancel</button>')
+}
